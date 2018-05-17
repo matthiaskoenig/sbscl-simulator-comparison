@@ -1,3 +1,4 @@
 cobra
+numpy
 pandas
 python-libsbml
