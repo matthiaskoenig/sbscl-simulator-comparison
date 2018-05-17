@@ -78,6 +78,9 @@ def compare_results(cobrapy_path, sbscl_path, output_path):
     df_sbscl['mid'] = df_sbscl.model.str.split('.').str[0]
     df = pd.merge(left=df_cobra, right=df_sbscl, on=['mid'])
     df['identical'] = np.abs(df.objective_value_x - df.objective_value_y) < EPS_COMPARISON
+    del df['target']
+    del df['model_x']
+    del df['model_y']
     print(df[df.identical == False])
     df.to_csv(output_path, sep="\t", index=False)
 
@@ -85,7 +88,8 @@ def compare_results(cobrapy_path, sbscl_path, output_path):
 if __name__ == "__main__":
     # simulation
     cobrapy_path = os.path.join(DIRECTORY, 'results', "bigg-fba-{}_cobrapy.tsv".format(BIGG_VERSION))
-    optimize_models(model_dir=BIGG_MODELS_PATH, results_path=results_path)
+    results_path = os.path.join(DIRECTORY, 'results')
+    # optimize_models(model_dir=BIGG_MODELS_PATH, results_path=results_path)
 
     # comparison of results
     sbscl_path = os.path.join(DIRECTORY, 'results', "bigg-fba-{}_sbscl.tsv".format(BIGG_VERSION))
