@@ -1,4 +1,15 @@
-cobra
-numpy
+
+matplotlib
+requests
+numpy==1.19.3
 pandas
-python-libsbml
+python-libsbml>=5.19.0
+
+optlang==1.4.2
+cobra==0.21.0
+cameo==0.13.0
+
+libroadrunner==2.0.5
+python-copasi>=4.30.240
+
+# pip install git+https://github.com/copasi/basico.git
