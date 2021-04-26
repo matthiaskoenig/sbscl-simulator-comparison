@@ -15,7 +15,7 @@ public class BiGGModels {
 
         for (File file : Objects.requireNonNull(dir.listFiles())) {
             String file_name = file.getName();
-            String model_name = file.getName().substring(0, file_name.length() - 4);
+            String model_name = file.getName().substring(0, file_name.length() - 7);
             String completePath = file.getAbsolutePath();
 
             for (int rep = 1; rep <= 5; rep++) {
