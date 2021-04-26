@@ -1,2 +1,14 @@
+/target/
+/.settings/
+/.classpath
+/.project
+
 *.pyc
 .idea
+
+# log files
+jsbml.log
+
+# lp solver jars
+libglpkjni_x64.so
+liblpsolve55j_x64.so
