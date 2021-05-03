@@ -26,6 +26,6 @@ def biomodels_model_paths() -> List[Path]:
 
 
 BIGG_MODEL_PATHS = bigg_model_paths()
-BIOMODELS_MODEL_PATHS = biomodels_model_paths()[500:]
+BIOMODELS_MODEL_PATHS = biomodels_model_paths()
 # pprint(BIGG_MODEL_PATHS)
 # pprint(BIOMODELS_MODEL_PATHS)

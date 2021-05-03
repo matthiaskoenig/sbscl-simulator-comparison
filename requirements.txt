@@ -4,7 +4,7 @@ requests
 numpy==1.19.3
 pandas
 python-libsbml>=5.19.0
-
+seaborn
 optlang==1.4.2
 cobra==0.21.0
 cameo==0.13.0

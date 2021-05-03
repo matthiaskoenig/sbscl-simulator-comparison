@@ -20,7 +20,7 @@ START = 0.0
 END = 100.0
 STEPS = 100
 ABSOLUTE_TOLERANCE = 1E-10
-RELATIVE_TOLERANCE = 1E-10
+RELATIVE_TOLERANCE = 1E-6
 
 
 def run_models_roadrunner(model_paths: List[Path], output_dir: Path) -> pd.DataFrame:
@@ -48,6 +48,10 @@ def run_models_roadrunner(model_paths: List[Path], output_dir: Path) -> pd.DataF
             start_time = time.time()
             s = rr.simulate(start=START, end=END, steps=STEPS)
             simulate_time = time.time() - start_time  # [s]
+
+            # filter models with delay
+            if model_id in ["BIOMD0000000024", "BIOMD0000000025", "BIOMD0000000034"]:
+                raise RuntimeError("delays not supported")
             status = "success"
         except (RuntimeError) as err:
             print(f"ERROR in '{model_id}'", err)
@@ -134,5 +138,5 @@ def run_models(simulator: str, n_repeat: int):
 
 
 if __name__ == "__main__":
-    # run_models(simulator="roadrunner", n_repeat=N_REPEAT)
+    run_models(simulator="roadrunner", n_repeat=N_REPEAT)
     run_models(simulator="copasi", n_repeat=N_REPEAT)
